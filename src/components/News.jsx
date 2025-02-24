@@ -14,7 +14,7 @@ const News = (props) => {
 
   const updateNews = async () => {
     props.setProgress(10);
-    const url = `https://newsapi.org/v2/top-headlines?category=${props.category}&apiKey=e7210d3d38294d2b8952e43baac393dc&page=${page}&pageSize=${props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?category=${props.category}&apiKey=5340a8a81413419385a9cc88f2b1934c&page=${page}&pageSize=${props.pageSize}`;
     // https://newsapi.org/v2/top-headlines?country=us&apiKey=e7210d3d38294d2b8952e43baac393dc
     let data = await fetch(url);
     props.setProgress(30);
@@ -42,7 +42,7 @@ const News = (props) => {
 
   const fetchMoreData = async () => {
     setPage(page + 1);
-    const url = `https://newsapi.org/v2/top-headlines?category=${props.category}&apiKey=e7210d3d38294d2b8952e43baac393dc&page=${page}&pageSize=${props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?category=${props.category}&apiKey=5340a8a81413419385a9cc88f2b1934c&page=${page}&pageSize=${props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     setArticles(articles.concat(parsedData.articles));
@@ -51,8 +51,11 @@ const News = (props) => {
 
   return (
     <>
-      <h1 className="text-center text-light" style={{ margin: "35px 0px" }}>
-        NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines
+      <h1
+        className="text-center text-light shadow bg-dark bg-gradient rounded-bottom-3"
+        style={{ margin: "35px 0px" }}
+      >
+        Top {capitalizeFirstLetter(props.category)} Headlines
       </h1>
       <InfiniteScroll
         dataLength={articles.length}

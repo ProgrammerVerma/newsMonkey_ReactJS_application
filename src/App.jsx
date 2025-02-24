@@ -15,7 +15,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div className="bg-secondary">
+        <div className="bg-dark bg-gradient">
           <LoadingBar
             color="#f11946"
             progress={this.state.progress}
